@@ -23,17 +23,38 @@
             return hashParams;
         }
 
-        const main = async () => {
+        const artists = [
+            { name: 'Sia', id: '5WUlDfRSoLAfcVSX1WnrxN', }
+        ];
+
+        const getPopularityOfSongs = async artistId => {
             const hashParams = getHashParams();
             const accessToken = hashParams.access_token;
-            
-            const response = await fetch("https://api.spotify.com/v1/artists/5WUlDfRSoLAfcVSX1WnrxN/top-tracks?country=US", {
-                headers: {
-                    'Authorization': 'Bearer ' + accessToken
+
+            const response = await fetch(
+                `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`,
+                {
+                    headers: {
+                        'Authorization': 'Bearer ' + accessToken
+                    }
                 }
-            });
+            );
             const responseBody = await response.json();
             console.log(responseBody);
+            return responseBody.tracks.map(track => {
+                return {
+                    id: track.id,
+                    name: track.name,
+                    popularity: track.popularity,
+                };
+            });
+        }
+
+        const main = async () => {
+            for (artist of artists) {
+                const popularityOfSongs = await getPopularityOfSongs(artist.id);
+                console.log(popularityOfSongs);
+            }
         }
         main();
     </script>
