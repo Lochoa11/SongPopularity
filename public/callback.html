@@ -54,8 +54,20 @@
             for (artist of artists) {
                 const popularityOfSongs = await getPopularityOfSongs(artist.id);
                 console.log(popularityOfSongs);
+                const response = await fetch('http://localhost:3000/popularity',  {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        artistName: artist.name,
+                        artistId: artist.id,
+                        songPopularity: popularityOfSongs,
+                    }),
+                });
             }
-        }
+        };
         main();
     </script>
 </body>
