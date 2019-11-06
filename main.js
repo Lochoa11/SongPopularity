@@ -18,9 +18,9 @@ app.get('/callback', (req, res) => {
 
 const getDate = () => {
     const dateObj = new Date()
-    const month = dateObj.getUTCMonth() + 1 //months from 1-12
-    const day = dateObj.getUTCDate()
-    const year = dateObj.getUTCFullYear()
+    const month = dateObj.getMonth() + 1 // months from 1-12
+    const day = dateObj.getDate()
+    const year = dateObj.getFullYear()
 
     return year + "/" + month + "/" + day
 }
