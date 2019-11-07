@@ -38,9 +38,9 @@ app.post('/popularity', jsonParser, async (request, response) => {
         }
     }
     const date = getDate()
-    console.log(songPopularity)
     data[artistId].songPopularity[date] = songPopularity
     await fs.writeFile('data.json', JSON.stringify(data, null, 2))
+    console.log('Wrote data to file.')
     response.sendStatus(201)
 })
 
