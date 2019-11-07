@@ -31,6 +31,9 @@
             { name: 'Mannheim Steamroller', id: '0EeHVtSdrYibpGDVHjWEpe', },
             { name: 'Sufjan Stevens', id: '4MXUO7sVCaFgFjoTI5ox5c', },
             { name: 'Neil Young', id: '6v8FB84lnmJs434UJf2Mrm', },
+            { name: 'Kanye West', id: '5K4W6rqBFWDnAN6FQUkS6x'},
+            { name: 'The Who', id: '67ea9eGLXYMsO2eYQRui3w',}
+            { name: 'Green Day', id: '7oPftvlwr6VrsViSDV7fJY',}
         ];
 
         const getPopularityOfSongs = async artistId => {
@@ -46,7 +49,7 @@
                 }
             );
             const responseBody = await response.json();
-            console.log(responseBody);
+            // console.log(responseBody);
             return responseBody.tracks.map(track => {
                 return {
                     id: track.id,
@@ -75,6 +78,38 @@
             }
         };
         main();
+
+        async function displayData(){
+            const res = await fetch('http://localhost:3000/data', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            });
+            console.log(res.json)
+
+            // obj = res.body;
+            // dbParam = JSON.stringify(obj);
+            // console.log(dbParam)
+            // xmlhttp = new XMLHttpRequest();
+            // xmlhttp.onreadystatechange = function() {
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         myObj = JSON.parse(this.responseText);
+            //         txt += "<table border='1'>"
+            //         for (x in myObj) {
+            //             txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+            //         }
+            //         txt += "</table>"
+            //         document.getElementById("demo").innerHTML = txt;
+            //     }
+            // }
+            // xmlhttp.open("POST", "json_demo_db_post.php", true);
+            // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            // xmlhttp.send("x=" + dbParam);
+        }
     </script>
+
+    <button onclick= "displayData()">show data</button>
 </body>
 </html>

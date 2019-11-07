@@ -8,10 +8,10 @@ const fs = require('fs').promises
 
 
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.redirect("hello.html"))
 
 app.get('/callback', (req, res) => {
-    console.log(req)
+    // console.log(req)
     // const urlObj = url.parse(req.url)
     // console.log(urlObj)
 })
@@ -38,10 +38,15 @@ app.post('/popularity', jsonParser, async (request, response) => {
         }
     }
     const date = getDate()
-    console.log(songPopularity)
+    // console.log(songPopularity)
     data[artistId].songPopularity[date] = songPopularity
     await fs.writeFile('data.json', JSON.stringify(data, null, 2))
     response.sendStatus(201)
+})
+app.get('/data', jsonParser, async(req, res) =>{
+    const fileBuffer = await fs.readFile('data.json')
+    const data = JSON.parse(fileBuffer)
+    res.json(data)
 })
 
 app.use(express.static('public'))
