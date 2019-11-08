@@ -3218,5 +3218,176 @@
         }
       ]
     }
+  },
+  "5K4W6rqBFWDnAN6FQUkS6x": {
+    "name": "Kanye West",
+    "songPopularity": {
+      "2019/11/7": [
+        {
+          "id": "2QpGZOhTCHHiKmpSO9FW4h",
+          "name": "Follow God",
+          "popularity": 93
+        },
+        {
+          "id": "2SasoXZyv82yYgHiVOvxQn",
+          "name": "On God",
+          "popularity": 88
+        },
+        {
+          "id": "3JWiDGQX2eTlFvKj3Yssj3",
+          "name": "Closed On Sunday",
+          "popularity": 88
+        },
+        {
+          "id": "39JRmdKFka1Oe09FoOCPI4",
+          "name": "Selah",
+          "popularity": 87
+        },
+        {
+          "id": "24bnCCysWnbNRNUT4LpHcP",
+          "name": "Everything We Need",
+          "popularity": 87
+        },
+        {
+          "id": "0oPOuDmmkVp3h6puekhs6P",
+          "name": "Use This Gospel",
+          "popularity": 86
+        },
+        {
+          "id": "6xRWoYwfwIKnT8bQGzKbxR",
+          "name": "God Is",
+          "popularity": 85
+        },
+        {
+          "id": "454Epa1vrCGFddHXKyC1kb",
+          "name": "Water",
+          "popularity": 85
+        },
+        {
+          "id": "1WnqWQcWcuQbVzgE7ecfCY",
+          "name": "Every Hour",
+          "popularity": 85
+        },
+        {
+          "id": "7r6aR2f57resC5r93LwMfK",
+          "name": "Hands On",
+          "popularity": 84
+        }
+      ]
+    }
+  },
+  "67ea9eGLXYMsO2eYQRui3w": {
+    "name": "The Who",
+    "songPopularity": {
+      "2019/11/7": [
+        {
+          "id": "3qiyyUfYe7CRYLucrPmulD",
+          "name": "Baba O'Riley",
+          "popularity": 78
+        },
+        {
+          "id": "4u9f8hqstB7iITDJNzKhQx",
+          "name": "My Generation - Stereo Version",
+          "popularity": 72
+        },
+        {
+          "id": "23IJ5wLRhEZ9DOuia5mPiZ",
+          "name": "Who Are You",
+          "popularity": 72
+        },
+        {
+          "id": "0cKk8BKEi7zXbdrYdyqBP5",
+          "name": "Behind Blue Eyes",
+          "popularity": 71
+        },
+        {
+          "id": "6LbbHFEajG9e4m0G3L47c4",
+          "name": "Pinball Wizard",
+          "popularity": 69
+        },
+        {
+          "id": "1W1GpfPujmgp2vQqcpUhtU",
+          "name": "Won't Get Fooled Again - Remix",
+          "popularity": 63
+        },
+        {
+          "id": "5orygsZ5Ga0jEOvftsXqw2",
+          "name": "The Seeker - Edit",
+          "popularity": 62
+        },
+        {
+          "id": "0LN5gIsS5tQSmRzQrHSaTR",
+          "name": "Eminence Front",
+          "popularity": 58
+        },
+        {
+          "id": "4B3gkbr7aGC2sujjgivK0s",
+          "name": "I Can't Explain - Mono Version",
+          "popularity": 57
+        },
+        {
+          "id": "2nlSeJ6CgvWeVOkrLmadf6",
+          "name": "I Can See For Miles",
+          "popularity": 55
+        }
+      ]
+    }
+  },
+  "7oPftvlwr6VrsViSDV7fJY": {
+    "name": "Green Day",
+    "songPopularity": {
+      "2019/11/7": [
+        {
+          "id": "6L89mwZXSOwYl76YXfX13s",
+          "name": "Basket Case",
+          "popularity": 80
+        },
+        {
+          "id": "6nTiIhLmQ3FWhvrGafw2zj",
+          "name": "American Idiot",
+          "popularity": 79
+        },
+        {
+          "id": "3ZffCQKLFLUvYM59XKLbVm",
+          "name": "Wake Me up When September Ends",
+          "popularity": 78
+        },
+        {
+          "id": "6ORqU0bHbVCRjXm9AjyHyZ",
+          "name": "Good Riddance (Time of Your Life)",
+          "popularity": 77
+        },
+        {
+          "id": "1Dr1fXbc2IxaK1Mu8P8Khz",
+          "name": "When I Come Around",
+          "popularity": 77
+        },
+        {
+          "id": "64yrDBpcdwEdNY9loyEGbX",
+          "name": "21 Guns",
+          "popularity": 76
+        },
+        {
+          "id": "5GorCbAP4aL0EJ16frG2hd",
+          "name": "Boulevard of Broken Dreams",
+          "popularity": 75
+        },
+        {
+          "id": "0MsrWnxQZxPAcov7c74sSo",
+          "name": "Holiday / Boulevard of Broken Dreams",
+          "popularity": 72
+        },
+        {
+          "id": "5kr3j5Clb9rjEposoMyLVt",
+          "name": "Welcome to Paradise",
+          "popularity": 70
+        },
+        {
+          "id": "3I8Ri6tLa4QA11MMdZywtM",
+          "name": "Fire, Ready, Aim",
+          "popularity": 69
+        }
+      ]
+    }
   }
 }
