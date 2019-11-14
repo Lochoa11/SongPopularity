@@ -95,14 +95,15 @@
         main();
 
         async function displayData(){
-            const res = await fetch('http://localhost:3000/data', {
+            const response = await fetch('http://localhost:3000/data', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 }
             });
-            console.log(res.json)
+            const json = await response.json()
+            console.log(json)
 
             // obj = res.body;
             // dbParam = JSON.stringify(obj);
