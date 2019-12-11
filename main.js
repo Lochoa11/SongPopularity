@@ -28,7 +28,10 @@ const getDate = () => {
 app.post('/popularity', jsonParser, async (request, response) => {
     const fileBuffer = await fs.readFile('data.json')
     const data = JSON.parse(fileBuffer)
+    
+    // Destructuring assignment?\/
     const { artistId, artistName, songPopularity } = request.body
+    
     // If we haven't recorded any information for this artist yet,
     // create a new entry in the JSON object.
     if (!data[artistId]) {
@@ -41,13 +44,14 @@ app.post('/popularity', jsonParser, async (request, response) => {
     // console.log(songPopularity)
     data[artistId].songPopularity[date] = songPopularity
     await fs.writeFile('data.json', JSON.stringify(data, null, 2))
-    console.log('Wrote data to file.')
+    // console.log('Wrote data to file.')
     response.sendStatus(201)
 })
 app.get('/data', jsonParser, async(req, res) =>{
     const fileBuffer = await fs.readFile('data.json')
     const data = JSON.parse(fileBuffer)
     res.json(data)
+    // console.log(data)
 })
 
 app.use(express.static('public'))

@@ -5,9 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CallBack</title>
+    <style type="text/css">
+        /* 13. Basic Styling with CSS */
+        
+        /* Style the lines by removing the fill and applying a stroke */
+        .line {
+            fill: none;
+            stroke: #ffab00;
+            stroke-width: 3;
+        }
+          
+        .overlay {
+          fill: none;
+          pointer-events: all;
+        }
+        
+        /* Style the dots by assigning a fill and stroke */
+        .dot {
+            fill: #ffab00;
+            stroke: #fff;
+        }
+          
+          .focus circle {
+          fill: none;
+          stroke: steelblue;
+        }
+
+    </style>
+    <link rel="stylesheet" type = "text/css" href="myStyle.css">
 </head>
 <body>
+    
+    <button onclick= "displayData()">show data</button>
+    <svg></svg>
+
+    <!-- load the d3.js library -->    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
+        
         function getHashParams() {
 
             var hashParams = {};
@@ -78,7 +113,7 @@
         const main = async () => {
             for (artist of artists) {
                 const popularityOfSongs = await getPopularityOfSongs(artist.id);
-                console.log(popularityOfSongs);
+                // console.log(popularityOfSongs);
                 const response = await fetch('http://localhost:3000/popularity',  {
                     method: 'POST',
                     headers: {
@@ -104,7 +139,8 @@
                 }
             });
             const json = await response.json()
-            console.log(json)
+            makeChart(json);
+            // console.log(json)
 
             // obj = res.body;
             // dbParam = JSON.stringify(obj);
@@ -125,8 +161,85 @@
             // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             // xmlhttp.send("x=" + dbParam);
         }
+
+        function getMariahCaryAllIWant(json){
+            
+            const mariahID = '4iHNK0tOyZPYnBU7nGAgpQ'
+            const allIWantSongID = '0bYg9bo50gSsH3LtXe2SQn'
+            
+            var newObj = {}
+
+            for(date in json[mariahID].songPopularity){
+                // console.log(json[mariahID].songPopularity[date][0].popularity)
+                newObj[date] = json[mariahID].songPopularity[date][0].popularity
+            }
+            
+            // console.log(newObj)
+            // console.log(nowYear + '/' + nowMonth + '/' + nowDate);
+
+            var now = new Date()
+            var secondaryObj = {}
+            var myArray = []
+
+            for(var d = new Date(2019, 10, 5); d <= now; d.setDate(d.getDate() + 1)){
+                var newDate = new Date(d);
+                var newDateBetterFormat = newDate.getFullYear() + '/' + (newDate.getMonth() + 1) + '/' + newDate.getDate()
+                if(newObj[newDateBetterFormat]){
+                    secondaryObj[newDateBetterFormat] = newObj[newDateBetterFormat]
+                    myArray.push(newObj[newDateBetterFormat])
+                }else{
+                    secondaryObj[newDateBetterFormat] = 0
+                }
+            }
+            // console.log(secondaryObj)
+            var arrayOfPopularity = Object.values(secondaryObj)
+            // console.log(arrayOfPopularity)
+            // console.log(myArray)
+            return arrayOfPopularity
+        }
+
+        function makeChart(json){
+            
+            var svgWidth = 500
+            var svgHeight = 300
+            
+            var svg = d3.select('svg')
+            .attr("width", svgWidth)
+            .attr("height", svgHeight)
+            .attr("class", "bar-chart")
+            
+            var mariahCarey_All_I_Want_DataSet = getMariahCaryAllIWant(json)
+            
+            var barPadding = 5
+            var barWidth = (svgWidth/mariahCarey_All_I_Want_DataSet.length)
+
+            var dataset = [80, 100, 56, 120, 180, 30, 40, 120, 160, 10,200];
+
+            console.log( mariahCarey_All_I_Want_DataSet)
+            console.log( dataset)
+
+            // var barPadding = 0
+            // var barWidth = (svgWidth/dataset.length)
+            
+            var barChart = svg.selectAll("rect")
+                .data(mariahCarey_All_I_Want_DataSet)
+                .enter()
+                .append("rect")
+                .attr("y", function(d){
+                    return svgHeight - d
+                })
+                .attr("height", function(d){
+                    return d
+                })
+                .attr("width", barWidth - barPadding)
+                .attr("transform", function(d, i){
+                    var translate = [barWidth * i, 0]
+                    return "translate(" + translate + ")"
+                })
+                
+        }
+
     </script>
 
-    <button onclick= "displayData()">show data</button>
 </body>
 </html>
